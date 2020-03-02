@@ -39,6 +39,9 @@ namespace specflowTestFramework.Pages
         private readonly By checkRowElementBy = By.XPath("//div[@class='user-ad-row__info']");
         public IWebElement checkRowElement => driver.FindElement(checkRowElementBy);
 
+        private readonly By resultPerPageElementBy = By.XPath("//div[@class='results - per - page - selector']//select[@class='select__select']");
+        public IWebElement resultPerPageElement => driver.FindElement(checkRowElementBy);
+
         private readonly By pageNumberElementBy = By.XPath("//div[@class='page - number - navigation']/a[contains(text(),'2')");
         public IWebElement pageNumberElement => driver.FindElement(pageNumberElementBy);
 
@@ -90,6 +93,42 @@ namespace specflowTestFramework.Pages
             catch (Exception e)
             {
                 Console.WriteLine("Search functionality failed + " + e);
+            }
+        }
+
+        //----------------------------------------------------------------
+        //   Function Name:  countObj
+        //   Description:    Count objects in the page 
+        //----------------------------------------------------------------
+        public void countObj(int count)
+        {
+            try
+            {
+                if (commonFunctions.commonFunctions.dynamicSync(checkRowElement, dynamicWait))
+                { 
+                    Assert.IsTrue(checkRowElement.Displayed, "Search results are Loaded");
+                    Assert.AreEqual(count, driver.FindElements(checkRowElementBy).Count, "Check on results row count");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Results were not loaded or count didn't match + " + e);
+            }
+        }
+        //----------------------------------------------------------------
+        //   Function Name:  verifyResultElement
+        //   Description:    verify results elemnt 
+        //----------------------------------------------------------------
+        public void verifyResultElement()
+        {
+            try
+            {
+                if (commonFunctions.commonFunctions.dynamicSync(resultPerPageElement, dynamicWait))
+                    Assert.IsTrue(resultPerPageElement.Displayed, "result page number");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Results page number element not found + " + e);
             }
         }
 

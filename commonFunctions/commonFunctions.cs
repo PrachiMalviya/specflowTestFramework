@@ -21,7 +21,6 @@ namespace specflowTestFramework.commonFunctions
             {
                 bool syncCheck;
                 syncCheck = dynamicWait.Until(d => (bool)(webElement as IWebElement).Displayed);
-                Thread.Sleep(5000);
                 return syncCheck;
             }
             catch (Exception e)

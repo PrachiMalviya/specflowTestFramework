@@ -108,6 +108,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
  testRunner.And("I search for \'toyota\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 8
+ testRunner.And("I count number of results match \'30\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 9
+ testRunner.Then("I find the label that show number of results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

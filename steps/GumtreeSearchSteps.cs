@@ -27,15 +27,15 @@ namespace specflowTestFramework.steps
         }
         
         [Given(@"I count number of results match '(.*)'")]
-        public void GivenICountNumberOfResultsMatch(int p0)
+        public void GivenICountNumberOfResultsMatch(int count)
         {
-            ScenarioContext.Current.Pending();
+            gumtreeObj.countObj(count);
         }
         
         [Then(@"I find the label that show number of results")]
         public void ThenIFindTheLabelThatShowNumberOfResults()
         {
-            ScenarioContext.Current.Pending();
+            gumtreeObj.verifyResultElement();
         }
     }
 }
